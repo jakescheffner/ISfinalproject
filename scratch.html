@@ -9,6 +9,9 @@
     html {
       scroll-behavior: smooth;
     }
+    iframe {
+      max-width: 100%;
+    }
   </style>
 </head>
 <body>
@@ -24,22 +27,47 @@
     </section>
 
     <section>
-      <img src="https://via.placeholder.com/300" alt="Golf placeholder image">
+      <h2>Golf Image</h2>
+      <img src="https://placehold.co/600x400?text=Golf+Image" alt="Placeholder image with the text 'Golf Image'">
     </section>
 
     <section>
       <h2>Favorite Golf Tutorial</h2>
-      <iframe width="560" height="315" 
-              src="https://www.youtube.com/embed/CN3ThL8DgFM" 
-              title="How To PLAY GOLF - The BASICS | Me and My Golf" 
-              frameborder="0" allowfullscreen></iframe>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/CN3ThL8DgFM" title="How To PLAY GOLF - The BASICS | Me and My Golf" frameborder="0" allowfullscreen></iframe>
     </section>
 
     <section>
       <h2>Interactive Golf Dashboard</h2>
-      <iframe src="https://public.tableau.com/views/GolfDashboard/GolfDash?:embed=y&:display_count=yes" 
-              width="100%" height="500" 
-              title="Golf Dashboard" frameborder="0" allowfullscreen></iframe>
+      <div class='tableauPlaceholder' id='viz1683123456789' style='position: relative'>
+        <noscript>
+          <a href='#'>
+            <img alt='Golf Dashboard' src='https://public.tableau.com/static/images/your_dashboard_image.png' style='border: none' />
+          </a>
+        </noscript>
+        <object class='tableauViz' style='display:none;'>
+          <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+          <param name='embed_code_version' value='3' />
+          <param name='site_root' value='' />
+          <param name='name' value='YourWorkbook/YourDashboard' />
+          <param name='tabs' value='no' />
+          <param name='toolbar' value='yes' />
+          <param name='static_image' value='https://public.tableau.com/static/images/your_dashboard_image.png' />
+          <param name='animate_transition' value='yes' />
+          <param name='display_static_image' value='yes' />
+          <param name='display_spinner' value='yes' />
+          <param name='display_overlay' value='yes' />
+          <param name='display_count' value='yes' />
+        </object>
+      </div>
+      <script type='text/javascript'>
+        var divElement = document.getElementById('viz1683123456789');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width='100%';
+        vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+      </script>
     </section>
 
     <section>
