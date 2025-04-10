@@ -36,7 +36,7 @@
       <div class="navbar-nav">
         <a class="nav-link" href="resume.html">Résumé</a>
         <a class="nav-link" href="tableau.html">Tableau</a>
-        <a class="nav-link active" href="game.html">Game</a>
+        <a class="nav-link active" href="webapp.html">Game</a>
       </div>
     </div>
   </nav>
@@ -73,6 +73,13 @@
 
     guessButton.addEventListener('click', () => {
       const userGuess = Number(guessInput.value);
+
+      // Check for valid input
+      if (!userGuess || userGuess < 1 || userGuess > 100) {
+        resultElement.innerHTML = '❌ Please enter a valid number between 1 and 100.';
+        return;
+      }
+
       attempts++;
 
       if (userGuess === randomNumber) {
@@ -83,9 +90,9 @@
         resultElement.innerHTML = '📉 Too low! Try again.';
       } else if (userGuess > randomNumber) {
         resultElement.innerHTML = '📈 Too high! Try again.';
-      } else {
-        resultElement.innerHTML = '❌ Invalid input. Please enter a number.';
       }
+
+      // Clear input field
       guessInput.value = '';
     });
   </script>
