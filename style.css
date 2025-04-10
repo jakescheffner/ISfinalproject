@@ -1,5 +1,4 @@
-/* style.css */
-
+/* Base styles */
 body {
   background-color: #f8f9fa; /* Light background */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -18,11 +17,14 @@ h1, h2 {
   max-width: 960px;
 }
 
+/* Image styling */
 img {
-  border-radius: 12px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
 }
 
-/* Make badges and sections cleaner */
+/* Badge styles */
 .badge {
   font-size: 0.95rem;
   background-color: #e0e0e0;
@@ -30,6 +32,7 @@ img {
   padding: 0.5em 0.8em;
 }
 
+/* List spacing */
 ul li {
   margin-bottom: 0.5em;
 }
@@ -40,20 +43,58 @@ ul li {
   padding: 0.5em 1.2em;
 }
 
-/* Embedded content spacing */
+.btn-outline-primary:hover {
+  background-color: #1a73e8;
+  color: #fff;
+  border-color: #1a73e8;
+}
+
+/* Embedded content */
 .ratio iframe {
   border-radius: 10px;
   border: 1px solid #ccc;
 }
 
-/* Add spacing between sections */
+/* Section spacing */
 h2 {
   margin-top: 2.5rem;
 }
 
-/* On small screens, center content */
+/* Link styling */
+a {
+  text-decoration: none;
+  color: #1a73e8;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #0056b3;
+}
+
+/* Footer styling */
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+}
+
+footer a {
+  color: #fff;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive design for smaller screens */
 @media (max-width: 768px) {
   h1, h2, p, .btn {
     text-align: center;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
   }
 }
