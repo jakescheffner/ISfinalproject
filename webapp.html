@@ -1,27 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Guess the Number</title>
+  <meta charset="UTF-8">
+  <title>My Web App</title>
   <style>
-    body { font-family: sans-serif; text-align: center; margin-top: 50px; }
+    body { font-family: Arial; background-color: #e0f7fa; padding: 20px; }
+    nav a { margin-right: 15px; color: #0077cc; }
   </style>
 </head>
 <body>
-  <h1>Guess a Number (1–10)</h1>
-  <input type="number" id="guess" />
-  <button onclick="checkGuess()">Submit</button>
-  <p id="result"></p>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="resume.html">Résumé</a>
+    <a href="tableau.html">Tableau</a>
+  </nav>
+
+  <h1>My Game</h1>
+  <p>Here’s a simple game I made with AI:</p>
 
   <script>
-    const number = Math.floor(Math.random() * 10) + 1;
-
-    function checkGuess() {
-      const userGuess = document.getElementById("guess").value;
-      if (userGuess == number) {
-        document.getElementById("result").innerText = "Correct!";
-      } else {
-        document.getElementById("result").innerText = "Try again!";
-      }
+    // A simple number guessing game
+    let number = Math.floor(Math.random() * 10) + 1;
+    let guess = prompt("Guess a number between 1 and 10");
+    if (parseInt(guess) === number) {
+      alert("Correct!");
+    } else {
+      alert("Nope, it was " + number);
     }
   </script>
 </body>
