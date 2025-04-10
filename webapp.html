@@ -1,143 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Number Guessing Game</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            color: #333;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            flex-direction: column;
-        }
-
-        .game-container {
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            width: 300px;
-        }
-
-        h1 {
-            color: #4CAF50;
-        }
-
-        .input-group {
-            margin: 15px 0;
-        }
-
-        input {
-            padding: 10px;
-            font-size: 16px;
-            width: 80%;
-            max-width: 200px;
-            margin: 5px;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-        }
-
-        button {
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        button:hover {
-            background-color: #45a049;
-        }
-
-        .result {
-            margin-top: 20px;
-            font-size: 18px;
-            font-weight: bold;
-        }
-
-        .message {
-            font-size: 18px;
-            margin-top: 10px;
-        }
-
-        .reset {
-            margin-top: 20px;
-            display: none;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Number Guessing Game</title>
+  <style>
+    body {
+      background-color: #f5f5f5;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+    h1 { color: #333; }
+    input, button { padding: 10px; margin: 10px; }
+    #result { font-size: 1.2em; margin-top: 20px; }
+  </style>
 </head>
 <body>
+  <h1>Guess the Number (1-100)</h1>
+  <input type="number" id="guess" placeholder="Enter your guess" min="1" max="100" />
+  <button onclick="checkGuess()">Submit</button>
+  <div id="result"></div>
 
-    <div class="game-container">
-        <h1>Number Guessing Game</h1>
-        <p>Guess a number between 1 and 100</p>
+  <script>
+    let secret = Math.floor(Math.random() * 100) + 1;
+    let attempts = 0;
 
-        <div class="input-group">
-            <input type="number" id="userGuess" placeholder="Enter your guess" min="1" max="100">
-        </div>
+    function checkGuess() {
+      const guess = parseInt(document.getElementById("guess").value);
+      attempts++;
+      const result = document.getElementById("result");
 
-        <button onclick="checkGuess()">Submit Guess</button>
-
-        <div class="result" id="result"></div>
-        <div class="message" id="message"></div>
-        
-        <button class="reset" id="resetButton" onclick="resetGame()">Play Again</button>
-    </div>
-
-    <script>
-        // Initialize game variables
-        let randomNumber = Math.floor(Math.random() * 100) + 1; // Generate random number between 1 and 100
-        let attempts = 0;
-
-        function checkGuess() {
-            const userGuess = parseInt(document.getElementById('userGuess').value);
-            const result = document.getElementById('result');
-            const message = document.getElementById('message');
-            const resetButton = document.getElementById('resetButton');
-
-            attempts++;
-
-            if (isNaN(userGuess) || userGuess < 1 || userGuess > 100) {
-                message.textContent = "Please enter a number between 1 and 100.";
-                result.textContent = '';
-                return;
-            }
-
-            if (userGuess === randomNumber) {
-                result.textContent = `Correct! The number was ${randomNumber}.`;
-                message.textContent = `You guessed it in ${attempts} attempts.`;
-                resetButton.style.display = "inline-block";
-            } else if (userGuess < randomNumber) {
-                result.textContent = "Too low!";
-                message.textContent = `Attempts: ${attempts}`;
-            } else {
-                result.textContent = "Too high!";
-                message.textContent = `Attempts: ${attempts}`;
-            }
-        }
-
-        function resetGame() {
-            // Reset the game for a new round
-            randomNumber = Math.floor(Math.random() * 100) + 1;
-            attempts = 0;
-
-            // Reset UI elements
-            document.getElementById('userGuess').value = '';
-            document.getElementById('result').textContent = '';
-            document.getElementById('message').textContent = '';
-            document.getElementById('resetButton').style.display = "none";
-        }
-    </script>
-
+      if (guess === secret) {
+        result.textContent = `🎉 You got it in ${attempts} tries! The number was ${secret}.`;
+      } else if (guess > secret) {
+        result.textContent = "Too high! Try again.";
+      } else {
+        result.textContent = "Too low! Try again.";
+      }
+    }
+  </script>
 </body>
 </html>
